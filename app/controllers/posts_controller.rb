@@ -32,4 +32,18 @@ class PostsController < ApplicationController
       end
     end
 
-end 
+    def destroy
+      @post.destroy
+      redirect_to posts_url, notice: 'Post was successfully destroyed'
+    end
+
+    private
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :content, :published_at)
+    end
+end
