@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def description
   end
 
-  def Who_we_are
+  def who_we_are
   end
 
   def mission
@@ -16,5 +16,8 @@ class PagesController < ApplicationController
   end
 
   def culture
+  end
+
+  def home
   end
 end

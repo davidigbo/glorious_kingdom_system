@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get "pages/core_values"
-  get "pages/culture"
-  get "pages/vision"
-  get "pages/mission"
-  get "pages/Who_we_are"
-  get "pages/description"
-   resources :posts
-   root "posts#index"
+  resources :posts
+
+  get "description", to: "pages#description"
+  get "who_we_are", to: "pages#who_we_are"
+  get "mission", to: "pages#mission"
+  get "vision", to: "pages#vision"
+  get "culture", to: "pages#culture"
+  get "core_values", to: "pages#core_values"
+
+   root "pages#home"
 end
