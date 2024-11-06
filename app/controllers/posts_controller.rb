@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
     def create
       @post = Post.new(post_params)
-      if @post.after_save
+      if @post.save
         redirect_to @post, notice: 'Post was successfully created'
       else
         render new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     end
 
     def update
-      if @post.updste(podt_params)
+      if @post.update(post_params)
         redirect_to @post, notice: 'Post aws successfully updated'
       else
         render :edit
