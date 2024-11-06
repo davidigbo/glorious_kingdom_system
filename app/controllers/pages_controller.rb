@@ -1,19 +1,20 @@
 class PagesController < ApplicationController
-  def core_values
-  end
 
-  def culture
-  end
-
-  def vision
-  end
-
-  def mission
+  def description
   end
 
   def Who_we_are
   end
 
-  def description
+  def mission
+  end
+
+  def vision
+  end
+
+  def core_values
+  end
+
+  def culture
   end
 end
