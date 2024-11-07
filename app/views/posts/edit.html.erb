@@ -1,4 +1,4 @@
-<h1>Edit Post</h1>
+<h1>New Post</h1>
 
 <% if flash[:notice] %>
   <div class="alert alert-success">
@@ -12,12 +12,13 @@
   </div>
 <% end %>
 
-<%= form_for @post do |f| %>
+<%= form_with(model: @post, local: true) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
   <%= f.label :content %>
   <%= f.text_area :content %>
+
 
   <%= f.submit %>
 <% end %>

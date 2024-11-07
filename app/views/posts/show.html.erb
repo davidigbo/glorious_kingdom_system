@@ -1,7 +1,6 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
-<p><emp>Published on: <%= @post.published_at.strftime("%B %d, %Y") %></emp></p>
+<p><em>Published on: <%= @post.published_at.present? ? @post.published_at.strftime("%B %d, %Y") : "Not published yet" %></em></p>
 
 <%= link_to 'Back to Posts', posts_path %> | 
 <%= link_to 'Edit', edit_post_path(@post) %> | 
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
