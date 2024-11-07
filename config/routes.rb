@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+  resources :posts do
+    resources :comments, only: %i[create destroy]
+    resources :likes, only: %i[create destroy]
+  end
 
   get "description", to: "pages#description"
   get "who_we_are", to: "pages#who_we_are"

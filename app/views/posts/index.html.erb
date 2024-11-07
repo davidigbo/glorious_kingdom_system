@@ -2,14 +2,7 @@
 <%= link_to 'New Post', new_post_path %>
 
 <ul>
-   <% @posts.each do |post| %>
-   <li>
-  <h2><%= post.title %></h2>
-  <p><%= post.content %></p>
-    <%= button_to 'Edit', edit_post_path(post) %> 
-   <%= button_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-   </li>
-   <% end %>
+   <%= render @posts %>
 </ul>
 
 <%= paginate @posts %>

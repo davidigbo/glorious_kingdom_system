@@ -8,8 +8,7 @@ class PostsController < ApplicationController
 
     def show
       @post = Post.find(params[:id])
-      @comments = @post.comments
-      @comment = Comment.new
+      @comments = @post.comments.build
     end
 
     def new
@@ -18,9 +17,10 @@ class PostsController < ApplicationController
 
     def create
       @post = Post.new(post_params)
+
       if @post.save
         flash[:notice] = 'Post was successfully created'  
-        redirect_to posts_path
+        redirect_to @post
       else
         flash[:alert] = 'There was an error post was not created'
         render new
