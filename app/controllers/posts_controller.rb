@@ -19,10 +19,10 @@ class PostsController < ApplicationController
       @post = Post.new(post_params)
 
       if @post.save
-        flash[:notice] = 'Post was successfully created'  
+        flash[:notice] = "Post was successfully created"
         redirect_to @post
       else
-        flash[:alert] = 'There was an error post was not created'
+        flash[:alert] = "There was an error post was not created"
         render new
       end
     end
@@ -31,8 +31,9 @@ class PostsController < ApplicationController
     end
 
     def update
+      @post = Post.find(params[:id])
       if @post.update(post_params)
-        redirect_to @post, notice: 'Post aws successfully updated'
+        redirect_to @post, notice: "Post aws successfully updated"
       else
         render :edit
       end
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
     def destroy
       @post = Post.find(params[:id])
       @post.destroy
-      redirect_to posts_url, notice: 'Post was successfully destroyed'
+      redirect_to posts_url, notice: "Post was successfully destroyed"
     end
 
     private
